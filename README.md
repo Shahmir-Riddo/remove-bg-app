@@ -8,8 +8,10 @@ Prerequisites
     Python 3.x
     Django 3.x
     rembg library
+Screenshot : 
 
-Installing
+
+![Screenshot (147)](https://user-images.githubusercontent.com/78295593/220423451-2401a887-c17d-43de-957d-9d7ea3575d3d.png)
 
     Clone this repository to your local machine.
 
