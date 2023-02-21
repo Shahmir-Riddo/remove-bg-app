@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Remove Background</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+  crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+  <!-- Custom CSS -->
+  <style>
+    .form-wrapper {
+      margin-top: 2rem;
+    }
+    .result-image {
+      margin-top: 2rem;
+      max-width: 100%;
+      height: auto;
+    }
+    .error-message {
+      color: red;
+    }
+    
+    img {
+      max-width: 600px; max-height: 600px;"
+    }
+   
+    body {
+  background-color: #d7ccc8;
+  color: #8d6e63;
+  ont-family: Poppins;
+}
+
+  h1, h2, h3 {
+  color: #bf360c;
+}
+
+  a {
+  color: #8d6e63;
+}
+
+  button {
+  margin: auto;
+  background-color: #bf360c;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor:
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mt-5 mb-3">Remove Background</h1>
+    <div class="row justify-content-center form-wrapper">
+      <div class="col-md-8">
+        {% if error %}
+        <div class="alert alert-danger">
+          {{ error }}
+        </div>
+        {% endif %}
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="image">Upload Image:</label>
+            <input type="file" name="image" id="image" class="form-control-file">
+          </div>
+          <button type="submit" class="btn btn-primary">Remove Background</button>
+        </form>
+        <h2 class="text-center mb-5">Result : </h2>
+        {% if image_url %}
+        <button  type="download" class="btn btn-primary"><a download="{{image_url}}" href="{{image_url}}" ></a>Download Image</button>
+        <img class="result-image" src="{{ image_url }}" alt="Result Image">
+        
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5pZONpLXp1QwstcRSRyFqnQfa10aUoPk9M9dO9Xdw" 
+  crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.js" 
+  integrity="sha384-Wyz8ATMnS5m5Iy50qqjzny5X5F2ljM6HHR1+wJGd6x/muX14H45q3Bfge0BcQSNd" 
+  crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+  crossorigin="anonymous"></script>
+</body>
+</html>
